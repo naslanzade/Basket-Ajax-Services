@@ -1,0 +1,95 @@
+﻿@model ProductDetailVM
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<style>
+    .status-slider {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .status-true {
+        background-color: greenyellow;
+    }
+
+    .status-false {
+        background-color: orangered;
+    }
+
+    body {
+        background-color: #F4F5F7;
+    }
+
+</style>
+
+<div class="col-lg-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Product Detail Table</h4>
+            <div class="table-responsive pt-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Category
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Detail
+                            </th>
+                            <th>
+                                Description
+                            </th>                         
+                            <th>
+                                Create Date
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="~/assets/imgs/Shop/@Model.Images?.Where(m=>m.IsMain).FirstOrDefault()?.Image" alt="" style="with:70px;height:50px;border-radius:0%">
+                            </td>
+                            <td>
+                                @Model.Name
+                            </td>
+                            <td>
+                                @Model.Category.Name
+                            </td>
+                            <td>
+                                @Model.Price
+                            </td>
+                            <td>
+                                @Model.Detail
+                            </td>
+                            <td>
+                                @Model.Description
+                            </td>                           
+                            <td>
+                                @Model.CreatedDate
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <br></br>
+            <a asp-action="Index" class="btn btn-outline-info btn-fw">Back</a>
+        </div>
+    </div>
+
+</div>
+
